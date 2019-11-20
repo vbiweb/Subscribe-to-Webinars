@@ -1,4 +1,107 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
+#webinar_notify_form{
+	padding:20px auto !important;
+}
+.webinar_notify{
+	cursor:pointer;
+	display:none;
+	height:100%;
+	text-align:center;
+	top:0;
+	width:100%;
+	z-index: 999999;
+	position: fixed;
+	background:rgba(255,255,255,0.6);
+
+}
+.webinar_notify .helper{
+	display:inline-block;
+	height:100%;
+	vertical-align:middle;
+}
+.webinar_notify > div {
+	background-color: #fff;
+	box-shadow: 10px 10px 60px #555;
+	display: inline-block;
+	height: auto;
+	max-width: 551px;
+	min-height: 100px;
+	vertical-align: middle;
+	width: 60%;
+	position: relative;
+	border-radius: 8px;
+	
+}
+@media only screen and (min-width: 300px) and (max-width: 700px){
+	.webinar_notify > div {
+		width: 90%;
+	}
+}
+.webinar_close {
+	background-color: #fff;
+	border: 3px solid #999;
+	border-radius: 50px;
+	cursor: pointer;
+	display: inline-block;
+	font-family: arial;
+	font-weight: bold;
+	position: absolute;
+	top: -20px;
+	right: -20px;
+	font-size: 25px;
+	line-height: 30px;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+}
+.webinar_close:hover {
+	background-color: #ccc;
+}
+.webinar_popup {
+	cursor: pointer;
+	font-size: 20px;
+	margin: 20px;
+	display: inline-block;
+	font-weight: bold;
+}
+.webinar_notify_popup_tag_form_wrapper{
+	width:100%;
+	height:100%;
+	padding:30px 20px;
+	
+	background:#f8f8f8 !important;
+	border-radius:10px;
+}
+
+.webinar_notify_popup_popup_form_submit{
+	margin:10px 0px;
+	color:#ffffff !important;
+	background:#ff9933;
+	border-color:#ff9933;
+}
+
+.webinar_notify_popup_tag_fields{
+	padding:12px !important;
+	font-size: 14px;
+	width: 95%;
+	margin-bottom:10px !important;
+}
+
+#webinar-notify-close-button {
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	font-size: 10px;
+	line-height: 1.2em;
+}
+#webinar_notify_form p.message{
+	color:red !important;
+	padding:20px !important;
+}
+#email-error{
+	color:red !important;
+	padding:20px !important;
+}
+.webinar_notify_trigger{
+	cursor:pointer	
+}

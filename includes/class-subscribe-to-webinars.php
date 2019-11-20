@@ -76,7 +76,6 @@ class Subscribe_To_Webinars {
 
 		$this->load_dependencies();
 		$this->set_locale();
-		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
 	}
@@ -110,12 +109,7 @@ class Subscribe_To_Webinars {
 		 * of the plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-subscribe-to-webinars-i18n.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the admin area.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-subscribe-to-webinars-admin.php';
-
+		
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
@@ -143,21 +137,6 @@ class Subscribe_To_Webinars {
 
 	}
 
-	/**
-	 * Register all of the hooks related to the admin area functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function define_admin_hooks() {
-
-		$plugin_admin = new Subscribe_To_Webinars_Admin( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
-	}
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality
@@ -172,6 +151,10 @@ class Subscribe_To_Webinars {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp_head' , $plugin_public, 'add_webinar_notify_form'  );
+		$this->loader->add_action( 'wp_ajax_webinar_notify_form_submission' , $plugin_public, 'webinar_notify_form_submission' );
+		$this->loader->add_action( 'wp_ajax_nopriv_webinar_notify_form_submission' , $plugin_public, 'webinar_notify_form_submission');
+
 
 	}
 
