@@ -95,18 +95,20 @@ class Subscribe_To_Webinars_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+		global $post;
+        $pageurl = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $pagename = $post->post_title;
         if($this->is_page_applicable()){
 			wp_enqueue_script( $this->plugin_name.'-blockUI','//malsup.github.io/jquery.blockUI.js', array( 'jquery' ), $this->version, false );
 			wp_enqueue_script( $this->plugin_name.'-validate','//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js', array( 'jquery' ), $this->version, false );
 			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/subscribe-to-webinars-public.js', array(  $this->plugin_name.'-blockUI',$this->plugin_name.'-validate','jquery' ), $this->version, false );
 			wp_localize_script($this->plugin_name, 'subscribe_to_webinar_vars', array(
-			'_bd_free_isp_error_msg' => get_option( '_bd_free_isp_error_msg' ),
-			'_bd_consultants_error_msg' => get_option( '_bd_consultants_error_msg' ),
-			'_blocked_domains_free_isp' => get_option( '_blocked_domains_free_isp' ),
-			'_blocked_domains_consultants' => get_option( '_blocked_domains_consultants' ),
-			'_contact_us_ajax_url' => esc_url( admin_url( 'admin-ajax.php' ) )
-		)
+			'pagename' => $pagename,
+			'pageurl' => $pageurl,
+			'hubutk' => $_COOKIE['hubspotutk'],
+			'ipaddr' => $_SERVER['REMOTE_ADDR'],
+			 )
+		
 	    );
         }
 
