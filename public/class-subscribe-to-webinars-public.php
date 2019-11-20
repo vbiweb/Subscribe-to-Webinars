@@ -107,6 +107,7 @@ class Subscribe_To_Webinars_Public {
 			'pageurl' => $pageurl,
 			'hubutk' => $_COOKIE['hubspotutk'],
 			'ipaddr' => $_SERVER['REMOTE_ADDR'],
+			'webinar_ajax_url' => esc_url( admin_url( 'admin-ajax.php' ) ),
 			 )
 		
 	    );

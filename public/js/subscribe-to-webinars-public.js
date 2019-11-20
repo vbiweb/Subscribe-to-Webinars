@@ -54,12 +54,12 @@
 
 				},
 				submitHandler: function () {
-					var wt = jQuery("input#webinar_title").val();
-					var em = jQuery("input#email").val();
-					var pn = jQuery("input#pagename").val();
-					var pu = jQuery("input#pageurl").val();
-					var hs = jQuery("input#hubutk").val();
-					var ip = jQuery("input#ipaddr").val();
+					var wt = jQuery("form#webinar_notify_form input#webinar_title").val();
+					var em = jQuery("form#webinar_notify_form input#email").val();
+					var pn = jQuery("form#webinar_notify_form input#pagename").val();
+					var pu = jQuery("form#webinar_notify_form input#pageurl").val();
+					var hs = jQuery("form#webinar_notify_form input#hubutk").val();
+					var ip = jQuery("form#webinar_notify_form input#ipaddr").val();
 
 					var data = {
 						action: 'webinar_notify_form_submission',
@@ -94,7 +94,7 @@
 
 					jQuery('form#webinar_notify_form').block(block_config);
 
-					jQuery.post("<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>", data, function(response){
+					jQuery.post(subscribe_to_webinar_vars.webinar_ajax_url, data, function(response){
 						if(response == 'success'){
 							jQuery('form#webinar_notify_form').html('<p style="padding:20px 30px;">Thank you for the submission, you will be notified when the webinar date is announced.</p>');
 						}else if(response == 'inemail'){
