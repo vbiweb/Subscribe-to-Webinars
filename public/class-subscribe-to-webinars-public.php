@@ -172,9 +172,9 @@ class Subscribe_To_Webinars_Public {
 		$page_name 					= $_POST['pagename'];
 		$hubspotutk      			= $_POST['hubspotutk'];
 		$ip_addr         			= $_POST['ipaddr'];
-		$form_id 					= '1498e4b6-e4ba-4e38-92ec-04d07b19ff1c';
-		$portal_id 					= '2857966';
-		$hapikey 					= '48161464-9aa4-4c0c-81a9-3ce65814157b';
+		$form_id 					= 'FORM-ID';
+		$portal_id 					= 'PORTAL-ID';
+		$hapikey 					= 'HAPIKEY';
 
 		$hs_context = array(
 			'hutk' 		=> $hubspotutk,
